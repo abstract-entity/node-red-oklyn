@@ -1,0 +1,275 @@
+<!-- oklyn-config -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-config',{
+      category: 'config',
+      defaults: {
+        name: { value: "Oklyn", required: true },
+        apiKey: { value: "", required: true }
+      },
+      label: function() {
+          return this.name || "Oklyn";
+      }
+  });
+</script>
+
+<script type="text/html" data-template-name="oklyn-config">
+  <div class="form-row">
+      <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-config-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-config-input-apiKey"><i class="fa fa-tag"></i> Api key</label>
+      <input type="text" id="node-config-input-apiKey" placeholder="Api key">
+  </div>
+</script>
+
+<!-- list devices -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-devices',{
+      category: 'oklyn',
+      color: '#ababab',
+      defaults: {
+          name: { value: '' },
+          oklyn: {
+            type: 'oklyn-config',
+            value: '',
+            required: true
+          }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'font-awesome/fa-sitemap',
+      label: function() {
+          return this.name || 'oklyn devices';
+      }
+  });
+</script>
+<script type="text/html" data-template-name="oklyn-devices">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-oklyn"><i class="fa fa-tag"></i> Config</label>
+      <input id="node-input-oklyn" placeholder="Config">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="oklyn-devices">
+  <p>List all oklyn devices attached to this apikey</p>
+</script>
+
+<!-- read measures -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-measures',{
+      category: 'oklyn',
+      color: '#ababab',
+      defaults: {
+          name: { value: '' },
+          deviceId: { value: 'my', required: true},
+          measure: { value: 'water', required: true},
+          oklyn: {
+            type: 'oklyn-config',
+            value: '',
+            required: true
+          }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'font-awesome/fa-thermometer',
+      label: function() {
+          return this.name || 'oklyn measures ' + this.measure;
+      }
+  });
+</script>
+<script type="text/html" data-template-name="oklyn-measures">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-oklyn"><i class="fa fa-tag"></i> Config</label>
+      <input id="node-input-oklyn" placeholder="Config">
+  </div>
+  <div class="form-row">
+      <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device id</label>
+      <input id="node-input-deviceId" placeholder="Device id">
+  </div>
+  <div class="form-row">
+      <label for="node-input-measure"><i class="fa fa-tag"></i> Measure</label>
+      <select id="node-input-measure">
+        <option value="water">water</option>
+        <option value="air">air</option>
+        <option value="ph">ph</option>
+        <option value="orp">orp</option>
+      </select>
+  </div>
+</script>
+
+<script type="text/html" data-help-name="oklyn-measures">
+  <p>Read oklyn measure for water, air, ph or orp(redox)</p>
+</script>
+
+<!-- read pump status -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-read-pump',{
+      category: 'oklyn',
+      color: '#ababab',
+      defaults: {
+          name: { value: '' },
+          deviceId: { value: 'my', required: true},
+          oklyn: {
+            type: 'oklyn-config',
+            value: '',
+            required: true
+          }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'font-awesome/fa-refresh',
+      label: function() {
+          return this.name || 'oklyn read pump';
+      }
+  });
+</script>
+<script type="text/html" data-template-name="oklyn-read-pump">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-oklyn"><i class="fa fa-tag"></i> Config</label>
+      <input id="node-input-oklyn" placeholder="Config">
+  </div>
+  <div class="form-row">
+      <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device id</label>
+      <input id="node-input-deviceId" placeholder="Device id">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="oklyn-read-pump">
+  <p>Read oklyn pump status</p>
+</script>
+
+<!-- update pump status -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-write-pump',{
+      category: 'oklyn',
+      color: '#ababab',
+      defaults: {
+          name: { value: '' },
+          deviceId: { value: 'my', required: true},
+          oklyn: {
+            type: 'oklyn-config',
+            value: '',
+            required: true
+          }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'font-awesome/fa-cogs',
+      label: function() {
+          return this.name || 'oklyn write pump';
+      }
+  });
+</script>
+<script type="text/html" data-template-name="oklyn-write-pump">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-oklyn"><i class="fa fa-tag"></i> Config</label>
+      <input id="node-input-oklyn" placeholder="Config">
+  </div>
+  <div class="form-row">
+      <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device id</label>
+      <input id="node-input-deviceId" placeholder="Device id">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="oklyn-write-pump">
+  <p>Write oklyn pump status</p>
+</script>
+
+<!-- read auxiliary contact status -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-read-auxiliary',{
+      category: 'oklyn',
+      color: '#ababab',
+      defaults: {
+          name: { value: '' },
+          deviceId: { value: 'my', required: true},
+          oklyn: {
+            type: 'oklyn-config',
+            value: '',
+            required: true
+          }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'font-awesome/fa-lightbulb-o',
+      label: function() {
+          return this.name || 'oklyn read auxiliary';
+      }
+  });
+</script>
+<script type="text/html" data-template-name="oklyn-read-auxiliary">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-oklyn"><i class="fa fa-tag"></i> Config</label>
+      <input id="node-input-oklyn" placeholder="Config">
+  </div>
+  <div class="form-row">
+      <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device id</label>
+      <input id="node-input-deviceId" placeholder="Device id">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="oklyn-read-auxiliary">
+  <p>Read oklyn auxiliary contact status</p>
+</script>
+
+<!-- update auxiliary contact status -->
+<script type="text/javascript">
+  RED.nodes.registerType('oklyn-write-auxiliary',{
+      category: 'oklyn',
+      color: '#ababab',
+      defaults: {
+          name: { value: '' },
+          deviceId: { value: 'my', required: true},
+          oklyn: {
+            type: 'oklyn-config',
+            value: '',
+            required: true
+          }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'font-awesome/fa-cogs',
+      label: function() {
+          return this.name || 'oklyn write auxiliary';
+      }
+  });
+</script>
+<script type="text/html" data-template-name="oklyn-write-auxiliary">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-oklyn"><i class="fa fa-tag"></i> Config</label>
+      <input id="node-input-oklyn" placeholder="Config">
+  </div>
+  <div class="form-row">
+      <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device id</label>
+      <input id="node-input-deviceId" placeholder="Device id">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="oklyn-write-auxiliary">
+  <p>Write oklyn auxiliary contact status</p>
+</script>

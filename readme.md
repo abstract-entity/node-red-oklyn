@@ -1,13 +1,22 @@
 # node-red-contrib-oklyn
-This set of node-red nodes communicate with oklyn cloud API
+This set of node-red nodes communicate with oklyn cloud API, if you like my work you can leave me a message, star github repo and/or buy me a coffee it's always pleasant
+
+<a href="https://www.buymeacoffee.com/abstractentity" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 ![preview](images/preview.png "Preview")
 
-## Install
+# Install
 Either use the Manage Palette option in the Node-RED Editor menu, or run the following command in your Node-RED user directory - typically '~/.node-red'
 
     npm install node-red-contrib-oklyn
 
+# Flow example
+Link below show you an implementation of each oklyn node with manual trigger
+
+## [Flow example](examples/example.json)
+<br />
+
+# API Usage
 ## Configuration
 To find your api key follow this steps:
 1.  Open your Oklyn mobile app, and go to 'my account'
@@ -32,12 +41,13 @@ To add your api key in node-red configuration:
 - No particular payload required
 
 **Payload output**
+- output
 
-    [
-      {"id":228,"username":"first swimming pool"},
-      {"id":229,"username":"Secondary home swimming pool"},
-      {"id":230,"username":"Third swimming pool"}
-    ]
+      [
+        {"id":228,"username":"first swimming pool"},
+        {"id":229,"username":"Secondary home swimming pool"},
+        {"id":230,"username":"Third swimming pool"}
+      ]
 
 ## Read measures
 **Configuration**
@@ -61,6 +71,7 @@ To add your api key in node-red configuration:
     
 
 **Payload output**
+- output
 
       {
         "recorded": "2022-03-06T13:45:04+00:00",
@@ -84,6 +95,7 @@ To add your api key in node-red configuration:
       }
 
 **Payload output**
+- output
 
       {
         "pump": "auto",
@@ -112,6 +124,7 @@ To add your api key in node-red configuration:
       }
 
 **Payload output**
+- output
 
       {
         "pump": "auto",
@@ -133,6 +146,7 @@ To add your api key in node-red configuration:
       }
 
 **Payload output**
+- output
 
       {
         "aux": "off",
@@ -160,6 +174,7 @@ To add your api key in node-red configuration:
       }
 
 **Payload output**
+- output
 
       {
         "aux": "off",

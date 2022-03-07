@@ -1,0 +1,475 @@
+[
+  {
+      "id": "bcbe69d0f842e868",
+      "type": "tab",
+      "label": "Oklyn",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "b731108363e8d00f",
+      "type": "oklyn-devices",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "oklyn": "316c0552d14416ae",
+      "x": 620,
+      "y": 120,
+      "wires": [
+          [
+              "f647ac59cc9f24a9"
+          ]
+      ]
+  },
+  {
+      "id": "b89c8784f77baf4a",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payloadType": "date",
+      "x": 360,
+      "y": 120,
+      "wires": [
+          [
+              "b731108363e8d00f"
+          ]
+      ]
+  },
+  {
+      "id": "f647ac59cc9f24a9",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 120,
+      "wires": []
+  },
+  {
+      "id": "5b9a268a66934593",
+      "type": "oklyn-measures",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "deviceId": "my",
+      "measure": "ph",
+      "oklyn": "316c0552d14416ae",
+      "x": 630,
+      "y": 200,
+      "wires": [
+          [
+              "591b5f9d3eb8b8bd"
+          ]
+      ]
+  },
+  {
+      "id": "2713fc768311fbb3",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "props": [],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "x": 370,
+      "y": 200,
+      "wires": [
+          [
+              "5b9a268a66934593"
+          ]
+      ]
+  },
+  {
+      "id": "591b5f9d3eb8b8bd",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 200,
+      "wires": []
+  },
+  {
+      "id": "1764d0aaabd2af3a",
+      "type": "oklyn-read-pump",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "deviceId": "my",
+      "oklyn": "316c0552d14416ae",
+      "x": 630,
+      "y": 340,
+      "wires": [
+          [
+              "6b7589655af0eb15"
+          ]
+      ]
+  },
+  {
+      "id": "baaa7a3580b321e9",
+      "type": "oklyn-read-auxiliary",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "deviceId": "my",
+      "oklyn": "316c0552d14416ae",
+      "x": 630,
+      "y": 640,
+      "wires": [
+          [
+              "f2c7653f15b47179"
+          ]
+      ]
+  },
+  {
+      "id": "a4151234a871903f",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payloadType": "date",
+      "x": 360,
+      "y": 340,
+      "wires": [
+          [
+              "1764d0aaabd2af3a"
+          ]
+      ]
+  },
+  {
+      "id": "75a9281da48a1f4f",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payloadType": "date",
+      "x": 360,
+      "y": 640,
+      "wires": [
+          [
+              "baaa7a3580b321e9"
+          ]
+      ]
+  },
+  {
+      "id": "6b7589655af0eb15",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 340,
+      "wires": []
+  },
+  {
+      "id": "f2c7653f15b47179",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 640,
+      "wires": []
+  },
+  {
+      "id": "ab59e62894449dba",
+      "type": "oklyn-write-auxiliary",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "deviceId": "my",
+      "oklyn": "316c0552d14416ae",
+      "x": 630,
+      "y": 720,
+      "wires": [
+          [
+              "28ed396f68da8c4e"
+          ]
+      ]
+  },
+  {
+      "id": "37cdf86fa65f5778",
+      "type": "oklyn-write-pump",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "deviceId": "my",
+      "oklyn": "316c0552d14416ae",
+      "x": 630,
+      "y": 480,
+      "wires": [
+          [
+              "e0c42c75b1bfdb30"
+          ]
+      ]
+  },
+  {
+      "id": "e5c54ea3b1b80b72",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "Pump on",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "{\"pump\":\"on\"}",
+      "payloadType": "json",
+      "x": 360,
+      "y": 420,
+      "wires": [
+          [
+              "37cdf86fa65f5778"
+          ]
+      ]
+  },
+  {
+      "id": "96fea19d7bdd9314",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "Pump off",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "{\"pump\":\"off\"}",
+      "payloadType": "json",
+      "x": 360,
+      "y": 480,
+      "wires": [
+          [
+              "37cdf86fa65f5778"
+          ]
+      ]
+  },
+  {
+      "id": "f6062602d30ec864",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "Pump auto",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "{\"pump\":\"auto\"}",
+      "payloadType": "json",
+      "x": 360,
+      "y": 540,
+      "wires": [
+          [
+              "37cdf86fa65f5778"
+          ]
+      ]
+  },
+  {
+      "id": "e0c42c75b1bfdb30",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 480,
+      "wires": []
+  },
+  {
+      "id": "210a24465329bce4",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "Aux on",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "{\"aux\":\"on\"}",
+      "payloadType": "json",
+      "x": 370,
+      "y": 700,
+      "wires": [
+          [
+              "ab59e62894449dba"
+          ]
+      ]
+  },
+  {
+      "id": "fde8cbeb47b36f3f",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "Aux off",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "{\"aux\":\"off\"}",
+      "payloadType": "json",
+      "x": 370,
+      "y": 760,
+      "wires": [
+          [
+              "ab59e62894449dba"
+          ]
+      ]
+  },
+  {
+      "id": "28ed396f68da8c4e",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 720,
+      "wires": []
+  },
+  {
+      "id": "67d1bb333000b122",
+      "type": "oklyn-measures",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "deviceId": "my",
+      "measure": "ph",
+      "oklyn": "316c0552d14416ae",
+      "x": 630,
+      "y": 280,
+      "wires": [
+          [
+              "0acd17effaadfb1a"
+          ]
+      ]
+  },
+  {
+      "id": "fdc2f69c202bde06",
+      "type": "inject",
+      "z": "bcbe69d0f842e868",
+      "name": "Inject with specific device ID",
+      "props": [
+          {
+              "p": "deviceId",
+              "v": "228",
+              "vt": "num"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "x": 300,
+      "y": 280,
+      "wires": [
+          [
+              "67d1bb333000b122"
+          ]
+      ]
+  },
+  {
+      "id": "0acd17effaadfb1a",
+      "type": "debug",
+      "z": "bcbe69d0f842e868",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 890,
+      "y": 280,
+      "wires": []
+  },
+  {
+      "id": "316c0552d14416ae",
+      "type": "oklyn-config",
+      "name": "Oklyn",
+      "apiKey": "PUT YOUR API KEY HERE"
+  }
+]

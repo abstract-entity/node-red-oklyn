@@ -1,4 +1,4 @@
-# node-red-contrib-oklyn
+# node-red-oklyn
 This set of node-red nodes communicate with oklyn cloud API, if you like my work you can leave me a message, star github repo and/or buy me a coffee it's always pleasant
 
 <a href="https://www.buymeacoffee.com/abstractentity" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
@@ -8,7 +8,7 @@ This set of node-red nodes communicate with oklyn cloud API, if you like my work
 # Install
 Either use the Manage Palette option in the Node-RED Editor menu, or run the following command in your Node-RED user directory - typically '~/.node-red'
 
-    npm install node-red-contrib-oklyn
+    npm i @abstract-entity/node-red-oklyn
 
 # Flow example
 Link below show you an implementation of each oklyn node with manual trigger

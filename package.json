@@ -1,6 +1,6 @@
 {
   "name": "@abstract-entity/node-red-oklyn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {

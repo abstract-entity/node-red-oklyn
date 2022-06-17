@@ -57,8 +57,8 @@ module.exports = function(RED) {
               node.send(msg);
             })
             .catch(error => {
-              msg.payload = error?.response?.data || error;
-              node.status({fill: "red", shape: "ring", text: error?.response?.data?.formatted_error || error});
+              msg.payload = error && error.response && error.response.data || error;
+              node.status({fill: "red", shape: "ring", text: error && error.response && error.response.data && error.response.data.formatted_error || error});
               node.error(error);
               node.send(msg);
             });
